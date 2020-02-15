@@ -32,5 +32,12 @@ public class Main {
 
     WounderTest myWounderTestCases = new WounderTest();
     myWounderTestCases.testSuccessValue();
+    myWounderTestCases.testDamageCharacteristics();
+    myWounderTestCases.testWounderBasics();
+    myWounderTestCases.testAutoWounding();
+    myWounderTestCases.testWounderMortalWounds();
+    myWounderTestCases.testWounderExtraDamage();
+    myWounderTestCases.testWounderRending();
+    myWounderTestCases.testExtraWounds();
     }
 }

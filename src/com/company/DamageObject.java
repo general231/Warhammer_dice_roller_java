@@ -25,4 +25,15 @@ public class DamageObject {
     {
         return myType;
     }
+
+    public void halveDamage()
+    {
+        myDamage = (myDamage + 1) / 2;
+    }
+    public void reduceDamage(int value)
+    {
+        myDamage -= value;
+        if (myDamage < 1) { myDamage = 1; }
+    }
+
 }

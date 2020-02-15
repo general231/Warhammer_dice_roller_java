@@ -6,7 +6,7 @@ public class Wounder extends SuccessObject{
     private int myStrength;
     private int myToughness;
 
-    private int myBaseDamage;
+    private String myBaseDamage;
     private int myBaseAp;
 
     private boolean myTestForRending;
@@ -29,7 +29,7 @@ public class Wounder extends SuccessObject{
     private boolean myMortalWoundsIsModified;
     private String myMortalWoundsBonus;
 
-    public Wounder(int strength, int toughness, int baseDamage, int baseAp)
+    public Wounder(int strength, int toughness, String baseDamage, int baseAp)
     {
         super(4);
         myTestForRending = false;
@@ -38,6 +38,8 @@ public class Wounder extends SuccessObject{
         myTestForMortalWounds = false;
         myStrength = strength;
         myToughness = toughness;
+        myBaseAp = baseAp;
+        myBaseDamage = baseDamage;
 
         if (strength >= toughness*2)
         {
@@ -100,11 +102,12 @@ public class Wounder extends SuccessObject{
         {
             for (int i = 0; i < bonusDamage; i++)
             {
-                output.add(new DamageObject(1, 1, Types.e_DamageType.MORTAL));
+                output.add(new DamageObject(1, 0, Types.e_DamageType.MORTAL));
             }
             return output;
         }
-        output.add(new DamageObject(myBaseDamage + bonusDamage, myBaseAp + bonusAp, Types.e_DamageType.NORMAL));
+        int damage = Types.diceToNum(myBaseDamage) + bonusDamage;
+        output.add(new DamageObject(damage, myBaseAp + bonusAp, Types.e_DamageType.NORMAL));
         return output;
     }
 
@@ -119,7 +122,7 @@ public class Wounder extends SuccessObject{
         }
         else if (type == Types.e_HitResult.WOUND)
         {
-            output.addAll(createDamageObject(Types.e_DamageType.NORMAL, myBaseDamage, myBaseAp));
+            output.addAll(createDamageObject(Types.e_DamageType.NORMAL, 0, 0));
             return output;
         }
         else if (type == Types.e_HitResult.FAIL)
@@ -132,7 +135,7 @@ public class Wounder extends SuccessObject{
             {
                 if (super.doesDiceExplode(diceValue, myRendingRequirement, myRendingIsModified))
                 {
-                    output.addAll(createDamageObject(Types.e_DamageType.NORMAL, myBaseDamage, myBaseAp + myRendingBonus));
+                    output.addAll(createDamageObject(Types.e_DamageType.NORMAL, 0, myRendingBonus));
                     return output;
                 }
             }
@@ -140,8 +143,7 @@ public class Wounder extends SuccessObject{
             {
                 if (super.doesDiceExplode(diceValue, myExplodingDamageRequirement, myExplodingDamageIsModified))
                 {
-                    int numBonusDamage = Types.diceToNum(myExplodingDamageBonus);
-                    output.addAll(createDamageObject(Types.e_DamageType.NORMAL, myBaseDamage + numBonusDamage, myBaseAp));
+                    output.addAll(createDamageObject(Types.e_DamageType.NORMAL, Types.diceToNum(myExplodingDamageBonus), 0));
                     return output;
                 }
             }
@@ -159,13 +161,13 @@ public class Wounder extends SuccessObject{
                 {
                     for (int i = 0; i < myExplodingWoundsBonus; i++)
                     {
-                        output.addAll(createDamageObject(Types.e_DamageType.NORMAL, myBaseDamage, myBaseAp));
+                        output.addAll(createDamageObject(Types.e_DamageType.NORMAL, 0, 0));
                     }
                 }
             }
             if (super.doISucceed(diceValue))
             {
-                output.addAll(createDamageObject(Types.e_DamageType.NORMAL, myBaseDamage, myBaseAp));
+                output.addAll(createDamageObject(Types.e_DamageType.NORMAL, 0, 0));
             }
             return output;
         }
