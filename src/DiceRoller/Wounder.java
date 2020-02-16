@@ -1,4 +1,4 @@
-package com.company;
+package DiceRoller;
 
 import java.util.ArrayList;
 

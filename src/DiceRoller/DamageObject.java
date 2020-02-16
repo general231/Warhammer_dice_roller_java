@@ -1,5 +1,5 @@
-package com.company;
-import com.company.Types;
+package DiceRoller;
+
 
 public class DamageObject {
     private int myDamage;

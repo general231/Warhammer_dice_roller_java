@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact name="dice rolling:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/dice_rolling_jar</output-path>
+    <root id="root">
+      <element id="archive" name="dice rolling.jar">
+        <element id="module-output" name="dice rolling" />
+      </element>
+      <element id="library" level="module" name="JUnit5.4" module-name="dice rolling" />
+      <element id="library" level="module" name="JUnit4" module-name="dice rolling" />
+    </root>
+  </artifact>
+</component>

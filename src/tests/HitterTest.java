@@ -2,8 +2,8 @@ package tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.company.Types;
-import com.company.Hitter;
+import DiceRoller.Types;
+import DiceRoller.Hitter;
 
 class HitterTestFunctions
 {
@@ -22,8 +22,8 @@ public class HitterTest {
 
     // test basic functinality
     public void testBasicHitFunctionality() {
-        int diceRolls[] = new int[]{1,2,3,4,5,6};
-        boolean expectedOutput[] = new boolean[]{false, false, true, true, true, true};
+        int[] diceRolls = new int[]{1,2,3,4,5,6};
+        boolean[] expectedOutput = new boolean[]{false, false, true, true, true, true};
         Hitter testClass = new Hitter(3);
         for (int i = 0; i < 6; i++)
         {
@@ -32,8 +32,8 @@ public class HitterTest {
     }
     // test auto success features
     public void testAutoSuccess() {
-        int diceRolls[] = new int[]{1,2,3,4,5,6};
-        boolean expectedOutput[] = new boolean[]{true, true, true, true, true, true};
+        int[] diceRolls = new int[]{1,2,3,4,5,6};
+        boolean[] expectedOutput = new boolean[]{true, true, true, true, true, true};
         Hitter testClass = new Hitter(3);
         testClass.setAutoSuccess(true);
         for (int i = 0; i < 6; i++)
@@ -43,8 +43,8 @@ public class HitterTest {
     }
     // test mortal wounding
     public void testMortalWound() {
-        int diceRolls[] = new int[]{1,2,3,4,5,6};
-        boolean expectedOutput[] = new boolean[]{false, false, false, false, false, true};
+        int[] diceRolls = new int[]{1,2,3,4,5,6};
+        boolean[] expectedOutput = new boolean[]{false, false, false, false, false, true};
         Hitter testClass = new Hitter(3);
         testClass.setMortalWound(6, false);
         for (int i = 0; i < 6; i++)
@@ -54,8 +54,8 @@ public class HitterTest {
     }
     // test auto wounding
     public void testAutoWound() {
-        int diceRolls[] = new int[]{1,2,3,4,5,6};
-        boolean expectedOutput[] = new boolean[]{false, false, false, false, false, true};
+        int[] diceRolls = new int[]{1,2,3,4,5,6};
+        boolean[] expectedOutput = new boolean[]{false, false, false, false, false, true};
         Hitter testClass = new Hitter(3);
         testClass.setAutoWound(6, false);
         for (int i = 0; i < 6; i++)
@@ -65,8 +65,8 @@ public class HitterTest {
     }
     // test exploding hits
     public void testExplodingHits() {
-        int diceRolls[] = new int[]{1,2,3,4,5,6};
-        boolean expectedOutput[] = new boolean[]{false, false, false, false, false, true};
+        int[] diceRolls = new int[]{1,2,3,4,5,6};
+        boolean[] expectedOutput = new boolean[]{false, false, false, false, false, true};
         Hitter testClass = new Hitter(3);
         testClass.setExplodingHits(6, false, 2);
         for (int i = 0; i < 6; i++)
@@ -76,8 +76,8 @@ public class HitterTest {
     }
     // test positive to hit modifiers
     public void testPositiveHitModifiers() {
-        int diceRolls[] = new int[]{1,2,3,4,5,6};
-        boolean expectedOutput[] = new boolean[]{false, true, true, true, true, true};
+        int[] diceRolls = new int[]{1,2,3,4,5,6};
+        boolean[] expectedOutput = new boolean[]{false, true, true, true, true, true};
         Hitter testClass = new Hitter(3);
         testClass.setDiceModifier(1);
         for (int i = 0; i < 6; i++)
@@ -87,8 +87,8 @@ public class HitterTest {
     }
     // test negative to hit modifiers
     public void testNegativeHitModifiers() {
-        int diceRolls[] = new int[]{1,2,3,4,5,6};
-        boolean expectedOutput[] = new boolean[]{false, false, false, true, true, true};
+        int[] diceRolls = new int[]{1,2,3,4,5,6};
+        boolean[] expectedOutput = new boolean[]{false, false, false, true, true, true};
         Hitter testClass = new Hitter(3);
         testClass.setDiceModifier(-1);
         for (int i = 0; i < 6; i++)

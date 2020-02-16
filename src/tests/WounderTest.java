@@ -1,8 +1,8 @@
 package tests;
 
-import com.company.Types;
-import com.company.Wounder;
-import com.company.DamageObject;
+import DiceRoller.Types;
+import DiceRoller.Wounder;
+import DiceRoller.DamageObject;
 
 import java.util.ArrayList;
 

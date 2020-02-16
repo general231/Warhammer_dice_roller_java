@@ -1,4 +1,4 @@
-package com.company;
+package DiceRoller;
 
 public class SuccessObject {
     protected int mySuccessValue;
