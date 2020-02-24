@@ -19,17 +19,18 @@ public class GuiMain extends Application {
         primaryStage.setTitle("Warhammer dice roller");
         Button btn = new Button();
         btn.setText("Calculate");
-        btn.setOnAction(e -> {
-            System.out.println("Hi");
-                });
 
-        SplitPane root = new SplitPane();
+        VBox root = new VBox();
+        SplitPane splitPane = new SplitPane();
 
         OptionsTabPane options = new OptionsTabPane();
         StatisticsTabPane statistics = new StatisticsTabPane();
-        root.getItems().addAll(options, statistics);
 
-        primaryStage.setScene(new Scene(root, Constants.windowWidth, Constants.windowHeight));
+        btn.setOnAction(e -> {
+            System.out.println(options.getData());
+        });
+        splitPane.getItems().addAll(options, statistics, btn);
+        primaryStage.setScene(new Scene(splitPane, Constants.windowWidth, Constants.windowHeight));
         primaryStage.show();
     }
 }

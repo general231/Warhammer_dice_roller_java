@@ -1,9 +1,8 @@
 package GUI;
 
-import java.awt.*;
-import org.json.simple;
+import javafx.scene.control.TextField;
 
-public class ExtendedTextField extends TextField {
+public class ExtendedTextField extends TextField implements ExtendedNodeInterface {
     private String myVarName;
 
     public ExtendedTextField(String varName)
@@ -11,5 +10,9 @@ public class ExtendedTextField extends TextField {
         myVarName = varName;
     }
 
-    public
+    public String getData()
+    {
+        return "{'" + myVarName + "':'" + this.getText() + "'}";
+    }
+
 }

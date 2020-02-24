@@ -2,35 +2,26 @@ package GUI;
 
 import javafx.scene.control.ComboBox;
 
-public class ExtendedComboBox extends ComboBox {
+public class ExtendedComboBox extends ComboBox<String> implements ExtendedNodeInterface {
     private String myVarName;
-
-    public ExtendedComboBox(String varName, int[] values)
-    {
-
-    }
 
     public ExtendedComboBox(String varName, String[] values)
     {
-
+        myVarName = varName;
+        createComboBox(values);
     }
 
-
-    private void createComboBox(int[] values)
+    private void createComboBox(String[] values)
     {
-        for (int num : values)
+        for (String aValue : values)
         {
-            this.getItems().add(num);
+            this.getItems().add(aValue);
         }
     }
 
-    private ComboBox<String> createComboBox(String[] values)
+    public String getData()
     {
-        ComboBox<String> cBox = new ComboBox<String>();
-        for (String string : values)
-        {
-            cBox.getItems().add(string);
-        }
-        return cBox;
+        return "{'" + myVarName + "':'" + this.getValue() + "'}";
     }
+
 }
