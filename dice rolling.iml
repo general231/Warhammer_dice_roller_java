@@ -60,6 +60,5 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="lib1" level="application" />
-    <orderEntry type="library" name="com.google.code.gson:gson:2.8.6" level="application" />
   </component>
 </module>
