@@ -1,13 +1,11 @@
 package tests;
 
-import DiceRoller.Types;
-import DiceRoller.Wounder;
-import DiceRoller.DamageObject;
+import StatisticsEngine.*;
+
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.*;
 
 class WounderTestFunctions
 {

@@ -23,15 +23,26 @@ public class OptionsTabPane extends TabPane {
     public String getData()
     {
         StringBuilder jsonString = new StringBuilder();
-        GridPane attackerGridPane = (GridPane) attackerTab.getContent();
-        for (Node component : attackerGridPane.getChildren())
+        jsonString.append("{");
+        GridPane gridPane = (GridPane) attackerTab.getContent();
+        for (Node component : gridPane.getChildren())
         {
-            if (attackerGridPane.getColumnIndex(component) != 0)
+            if (GridPane.getColumnIndex(component) != 0)
             {
                 ExtendedNodeInterface extendedComponent = (ExtendedNodeInterface)component;
                 jsonString.append(extendedComponent.getData());
             }
         }
+        gridPane = (GridPane) defenderTab.getContent();
+        for (Node component : gridPane.getChildren())
+        {
+            if (GridPane.getColumnIndex(component) != 0)
+            {
+                ExtendedNodeInterface extendedComponent = (ExtendedNodeInterface)component;
+                jsonString.append(extendedComponent.getData());
+            }
+        }
+        jsonString.append("}");
         return jsonString.toString();
     }
 
@@ -44,7 +55,7 @@ public class OptionsTabPane extends TabPane {
         attackerGrid.add( new ExtendedComboBox("shotType", Constants.possibleDiceRolls ), 2, row );
         row++;
         attackerGrid.add( new Label("Ballistic/Weapon Skill: " ), 0, row );
-        attackerGrid.add( new ExtendedComboBox( "balisticSkill", Constants.ballisticSkill ),  1, row );
+        attackerGrid.add( new ExtendedComboBox( "ballisticSkill", Constants.ballisticSkill ),  1, row );
         row++;
         attackerGrid.add( new Label("Hit Modifier: " ), 0, row );
         attackerGrid.add( new ExtendedComboBox("hitModifier", Constants.hitModifiers),  1, row);
@@ -82,18 +93,14 @@ public class OptionsTabPane extends TabPane {
         attackerGrid.add(new Label("Mortal Wounds: " ), 0, row);
 //        row++;
 
-
-
-
         attackerTab = new Tab("Attacker");
         attackerTab.setContent(attackerGrid);
     }
-    private void createDefenderTab()
-    {
+    private void createDefenderTab() {
         GridPane defenderGrid = new GridPane();
         int row = 0;
-        defenderGrid.add(new Label("Toughness:" ), 0, row);
-        defenderGrid.add(new TextField(), 1, row);
+        defenderGrid.add(new Label("Toughness:"), 0, row);
+        defenderGrid.add(new ExtendedTextField("toughness"), 1, row);
         row++;
         defenderGrid.add(new Label("Armour Save:"), 0, row);
         defenderGrid.add(new ExtendedComboBox("armourSave", Constants.saveValues), 1, row);
@@ -105,27 +112,8 @@ public class OptionsTabPane extends TabPane {
         defenderGrid.add(new ExtendedComboBox("fnpSave", Constants.saveValues), 1, row);
         row++;
         defenderGrid.add(new Label("Wounds Characteristic:"), 0, row);
+
         defenderTab = new Tab("Defender");
         defenderTab.setContent(defenderGrid);
-    }
-
-    private ComboBox<Integer> createComboBox(int[] values)
-    {
-        ComboBox<Integer> cBox = new ComboBox<>();
-        for (int num : values)
-        {
-            cBox.getItems().add(num);
-        }
-        return cBox;
-    }
-
-    private ComboBox<String> createComboBox(String[] values)
-    {
-        ComboBox<String> cBox = new ComboBox<>();
-        for (String string : values)
-        {
-            cBox.getItems().add(string);
-        }
-        return cBox;
     }
 }

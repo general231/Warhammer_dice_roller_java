@@ -1,4 +1,4 @@
-package DiceRoller;
+package StatisticsEngine;
 
 import tests.HitterTest;
 import tests.WounderTest;

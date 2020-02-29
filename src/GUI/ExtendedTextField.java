@@ -12,7 +12,10 @@ public class ExtendedTextField extends TextField implements ExtendedNodeInterfac
 
     public String getData()
     {
-        return "{'" + myVarName + "':'" + this.getText() + "'}";
+        if (this.getText() != null) {
+            return "\"" + myVarName + "\":\"" + this.getText() + "\",";
+        }
+        return "";
     }
 
 }

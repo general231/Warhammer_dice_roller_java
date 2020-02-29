@@ -1,4 +1,4 @@
-package DiceRoller;
+package StatisticsEngine;
 
 public class ModelObject {
     private int myWoundCharacteristic;

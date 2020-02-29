@@ -1,5 +1,6 @@
 package GUI;
 
+import StatisticsEngine.StatisticsEngine;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -27,7 +28,7 @@ public class GuiMain extends Application {
         StatisticsTabPane statistics = new StatisticsTabPane();
 
         btn.setOnAction(e -> {
-            System.out.println(options.getData());
+            StatisticsEngine statEngine = new StatisticsEngine(options.getData());
         });
         splitPane.getItems().addAll(options, statistics, btn);
         primaryStage.setScene(new Scene(splitPane, Constants.windowWidth, Constants.windowHeight));

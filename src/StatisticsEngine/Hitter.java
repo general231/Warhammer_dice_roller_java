@@ -1,4 +1,4 @@
-package DiceRoller;
+package StatisticsEngine;
 
 import java.util.ArrayList;
 

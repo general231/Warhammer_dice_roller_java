@@ -1,10 +1,7 @@
 package tests;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import DiceRoller.Types;
-import DiceRoller.Hitter;
-
+import static org.junit.Assert.*;
+import StatisticsEngine.*;
 class HitterTestFunctions
 {
     public boolean hitterValueTest(Hitter testClass, int diceValue, boolean applyReRoll, Types.e_HitResult expectedOutput)
