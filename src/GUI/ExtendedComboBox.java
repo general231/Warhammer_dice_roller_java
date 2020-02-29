@@ -10,6 +10,12 @@ public class ExtendedComboBox extends ComboBox<String> implements ExtendedNodeIn
         myVarName = varName;
         createComboBox(values);
     }
+    public ExtendedComboBox(String varName, String[] values, boolean setFirst)
+    {
+        myVarName = varName;
+        createComboBox(values);
+        if (setFirst) { this.getSelectionModel().selectFirst(); }
+    }
 
     private void createComboBox(String[] values)
     {

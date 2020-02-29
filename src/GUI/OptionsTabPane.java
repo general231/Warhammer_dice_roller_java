@@ -3,8 +3,6 @@ package GUI;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.text.Text;
 
 public class OptionsTabPane extends TabPane {
 
@@ -42,6 +40,7 @@ public class OptionsTabPane extends TabPane {
                 jsonString.append(extendedComponent.getData());
             }
         }
+        jsonString.deleteCharAt(jsonString.length()-1); //remove the last comma
         jsonString.append("}");
         return jsonString.toString();
     }
@@ -52,7 +51,7 @@ public class OptionsTabPane extends TabPane {
         int row = 0;
         attackerGrid.add( new Label("Number of Shots:" ), 0, row );
         attackerGrid.add( new ExtendedTextField("numShots"), 1, row );
-        attackerGrid.add( new ExtendedComboBox("shotType", Constants.possibleDiceRolls ), 2, row );
+        attackerGrid.add( new ExtendedComboBox("shotType", Constants.possibleNumShots), 2, row );
         row++;
         attackerGrid.add( new Label("Ballistic/Weapon Skill: " ), 0, row );
         attackerGrid.add( new ExtendedComboBox( "ballisticSkill", Constants.ballisticSkill ),  1, row );
@@ -75,6 +74,10 @@ public class OptionsTabPane extends TabPane {
         row++;
         attackerGrid.add(new Label("Armour Penetration: " ), 0, row);
         attackerGrid.add(new ExtendedTextField("ap"), 1, row);
+        row++;
+        attackerGrid.add(new Label("Damage: " ), 0, row);
+        attackerGrid.add(new ExtendedTextField("DamageAmount"), 1, row);
+        attackerGrid.add(new ExtendedComboBox("DamageType", Constants.possibleNumShots), 2, row);
         row++;
         attackerGrid.add(new Label("Exploding Hits: " ), 0, row);
         row++;
@@ -112,6 +115,7 @@ public class OptionsTabPane extends TabPane {
         defenderGrid.add(new ExtendedComboBox("fnpSave", Constants.saveValues), 1, row);
         row++;
         defenderGrid.add(new Label("Wounds Characteristic:"), 0, row);
+//        row++;
 
         defenderTab = new Tab("Defender");
         defenderTab.setContent(defenderGrid);

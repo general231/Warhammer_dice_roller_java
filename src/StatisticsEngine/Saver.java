@@ -6,10 +6,12 @@ public class Saver {
     private int myInvulnerableSave;
     private DiceRoller myDiceRoller;
 
-    public Saver(int armourSave, int invulnerableSave)
+    public Saver(int armourSave, int invulnerableSave, int woundCharacteristic, int fnp)
     {
         myArmourSave = armourSave;
         myInvulnerableSave = invulnerableSave;
+        myModelObject = new ModelObject(woundCharacteristic);
+        myModelObject.setMyFnp(fnp);
         myDiceRoller = new DiceRoller();
     }
 

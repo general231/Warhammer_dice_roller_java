@@ -23,6 +23,20 @@ public class Types {
         MORTAL
     }
 
+    static e_ReRoll stringToEReRoll(String value)
+    {
+        switch (value) {
+            case "ones":
+                return e_ReRoll.ONES;
+            case "failed hits":
+                return e_ReRoll.FAILED_HITS;
+            case "hits":
+                return e_ReRoll.HITS;
+            default:
+                return e_ReRoll.NONE;
+    }
+    }
+
     static public int diceToNum(String value)
     {
         if (diceRoller == null) { diceRoller = new DiceRoller(); }

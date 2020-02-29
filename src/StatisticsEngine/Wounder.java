@@ -6,7 +6,7 @@ public class Wounder extends SuccessObject{
     private int myStrength;
     private int myToughness;
 
-    private String myBaseDamage;
+    private DiceObject myBaseDamage;
     private int myBaseAp;
 
     private boolean myTestForRending;
@@ -17,19 +17,19 @@ public class Wounder extends SuccessObject{
     private boolean myTestForExplodingDamage;
     private int myExplodingDamageRequirement;
     private boolean myExplodingDamageIsModified;
-    private String myExplodingDamageBonus;
+    private DiceObject myExplodingDamageBonus;
 
     private boolean myTestForExplodingWounds;
     private int myExplodingWoundsRequirement;
     private boolean myExplodingWoundsIsModified;
-    private int myExplodingWoundsBonus;
+    private DiceObject myExplodingWoundsBonus;
 
     private boolean myTestForMortalWounds;
     private int myMortalWoundsRequirement;
     private boolean myMortalWoundsIsModified;
-    private String myMortalWoundsBonus;
+    private DiceObject myMortalWoundsBonus;
 
-    public Wounder(int strength, int toughness, String baseDamage, int baseAp)
+    public Wounder(int strength, int toughness, DiceObject baseDamage, int baseAp)
     {
         super(4);
         myTestForRending = false;
@@ -71,7 +71,7 @@ public class Wounder extends SuccessObject{
         myRendingBonus = bonus;
     }
 
-    public void setExplodingDamage(int diceRequirement, boolean isModified, String bonus)
+    public void setExplodingDamage(int diceRequirement, boolean isModified, DiceObject bonus)
     {
         myTestForExplodingDamage = true;
         myExplodingDamageRequirement = diceRequirement;
@@ -79,7 +79,7 @@ public class Wounder extends SuccessObject{
         myExplodingDamageBonus = bonus;
     }
 
-    public void setMortalWounds(int diceRequirement, boolean isModified, String bonus)
+    public void setMortalWounds(int diceRequirement, boolean isModified, DiceObject bonus)
     {
         myTestForMortalWounds = true;
         myMortalWoundsRequirement = diceRequirement;
@@ -87,7 +87,7 @@ public class Wounder extends SuccessObject{
         myMortalWoundsBonus = bonus;
     }
 
-    public void setExplodingWounds(int diceRequirement, boolean isModified, int bonus)
+    public void setExplodingWounds(int diceRequirement, boolean isModified, DiceObject bonus)
     {
         myTestForExplodingWounds = true;
         myExplodingWoundsRequirement = diceRequirement;
@@ -106,7 +106,7 @@ public class Wounder extends SuccessObject{
             }
             return output;
         }
-        int damage = Types.diceToNum(myBaseDamage) + bonusDamage;
+        int damage = myBaseDamage.rollDice() + bonusDamage;
         output.add(new DamageObject(damage, myBaseAp + bonusAp, Types.e_DamageType.NORMAL));
         return output;
     }
@@ -143,7 +143,7 @@ public class Wounder extends SuccessObject{
             {
                 if (super.doesDiceExplode(diceValue, myExplodingDamageRequirement, myExplodingDamageIsModified))
                 {
-                    output.addAll(createDamageObject(Types.e_DamageType.NORMAL, Types.diceToNum(myExplodingDamageBonus), 0));
+                    output.addAll(createDamageObject(Types.e_DamageType.NORMAL, myExplodingDamageBonus.rollDice(), 0));
                     return output;
                 }
             }
@@ -151,7 +151,7 @@ public class Wounder extends SuccessObject{
             {
                 if (super.doesDiceExplode(diceValue, myMortalWoundsRequirement, myMortalWoundsIsModified))
                 {
-                    int numMortalWounds = Types.diceToNum(myMortalWoundsBonus);
+                    int numMortalWounds = myMortalWoundsBonus.rollDice();
                     output.addAll(createDamageObject(Types.e_DamageType.MORTAL, numMortalWounds, 0));
                 }
             }
@@ -159,7 +159,8 @@ public class Wounder extends SuccessObject{
             {
                 if (super.doesDiceExplode(diceValue, myExplodingWoundsRequirement, myExplodingWoundsIsModified))
                 {
-                    for (int i = 0; i < myExplodingWoundsBonus; i++)
+                    int explodingBonus = myExplodingWoundsBonus.rollDice();
+                    for (int i = 0; i < explodingBonus; i++)
                     {
                         output.addAll(createDamageObject(Types.e_DamageType.NORMAL, 0, 0));
                     }

@@ -24,8 +24,10 @@ public class ModelObject {
     }
     public void setMyFnp(int value)
     {
-        myFnp = value;
-        myIsFnp = true;
+        if (value != 0) {
+            myFnp = value;
+            myIsFnp = true;
+        }
     }
     public int getMyTotalDamageReceived() { return myTotalDamageReceived; }
     public int getMyTotalLostModels() { return myTotalLostModels; }

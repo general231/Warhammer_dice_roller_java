@@ -4,7 +4,6 @@ import java.util.Random;
 
 public class DiceRoller {
     Random myRandom;
-    int myMaxValue;
 
     public DiceRoller()
     {
