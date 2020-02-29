@@ -26,11 +26,11 @@ public class Constants {
     {
         switch (iteration) {
             case "small":
-                return 10000;
+                return 1000;
             case "medium":
-                return 100000;
+                return 10000;
             case "large":
-                return 1000000;
+                return 100000;
             default:
                 return 10000000;
         }

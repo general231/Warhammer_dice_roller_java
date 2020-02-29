@@ -30,4 +30,14 @@ public class Saver {
         myModelObject.applyDamage(someDamage);
         return false;
     }
+
+    public int getLostModels()
+    {
+        return myModelObject.getMyTotalLostModels();
+    }
+
+    public int getDamageReceived()
+    {
+        return myModelObject.getMyTotalDamageReceived();
+    }
 }

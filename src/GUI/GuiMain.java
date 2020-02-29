@@ -39,6 +39,7 @@ public class GuiMain extends Application {
             try {
                 StatisticsEngine.checkForRequriedFields(jsonString);
                 StatisticsEngine statEngine = new StatisticsEngine(jsonString, Constants.stringIterationsToNum(iterationComboBox.getData()));
+                statEngine.executeOrder();
                 errorLabel.setText("");
             }
             catch (IllegalArgumentException except)

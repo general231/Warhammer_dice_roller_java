@@ -4,8 +4,6 @@ public class DiceRollFactory {
     static public DiceObject createDiceObject(int numDice, String stringDiceObject)
     { //" ", "XD3", "XD6", "XD6 pick the highest", "XD6 with re-roll", "XD3 with re-roll"
         switch (stringDiceObject) {
-            case " ":
-                return new flatDamageDiceObject(numDice);
             case "XD3":
                 return new XD3DiceObject(numDice);
             case "XD6":
@@ -19,7 +17,7 @@ public class DiceRollFactory {
             case "XD3 with re-roll":
                 return new XD3WithReRollDiceObject(numDice);
             default:
-                throw new IllegalArgumentException("dice value not allowed: " + stringDiceObject);
+                return new flatDamageDiceObject(numDice);
         }
     }
 }
