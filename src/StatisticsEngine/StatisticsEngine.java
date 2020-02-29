@@ -34,7 +34,7 @@ public class StatisticsEngine {
     private void createWounderObject()
     {
         myWounder = new Wounder(myDiceCharacteristics.weaponStrength, myDiceCharacteristics.toughness,
-                DiceRollFactory.createDiceObject(myDiceCharacteristics.DamageAmount, myDiceCharacteristics.DamageType),
+                DiceRollFactory.createDiceObject(myDiceCharacteristics.damageAmount, myDiceCharacteristics.damageType),
                 myDiceCharacteristics.ap);
         myWounder.setDiceModifier(myDiceCharacteristics.woundModifier);
         myWounder.setReRoll(Types.stringToEReRoll(myDiceCharacteristics.woundReRoll));
@@ -51,6 +51,26 @@ public class StatisticsEngine {
         Gson gson = new Gson();
         System.out.println(jsonString);
         DiceCharacteristics checkingObject = gson.fromJson(jsonString, DiceCharacteristics.class);
-        //num shots, balistic skill, strength, toughness,
+        //num shots, balistic skill, strength, toughness, damage
+        if (checkingObject.numShots == 0)
+        {
+            throw new IllegalArgumentException("Number of shots needs to be set");
+        }
+        else if (checkingObject.ballisticSkill == 0)
+        {
+            throw new IllegalArgumentException("Balistic skill needs to be set");
+        }
+        else if (checkingObject.weaponStrength == 0)
+        {
+            throw new IllegalArgumentException("Weapon skill needs to be set");
+        }
+        else if (checkingObject.toughness == 0)
+        {
+            throw new IllegalArgumentException("Toughness needs to be set");
+        }
+        else if (checkingObject.damageAmount == 0)
+        {
+            throw new IllegalArgumentException("Damage needs to be set");
+        }
     }
 }

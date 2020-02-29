@@ -21,7 +21,6 @@ public class OptionsTabPane extends TabPane {
     public String getData()
     {
         StringBuilder jsonString = new StringBuilder();
-        jsonString.append("{");
         GridPane gridPane = (GridPane) attackerTab.getContent();
         for (Node component : gridPane.getChildren())
         {
@@ -40,7 +39,9 @@ public class OptionsTabPane extends TabPane {
                 jsonString.append(extendedComponent.getData());
             }
         }
-        jsonString.deleteCharAt(jsonString.length()-1); //remove the last comma
+        if (jsonString.length() != 0)
+        { jsonString.deleteCharAt(jsonString.length()-1); } //remove the last comma
+        jsonString.insert(0, "{");
         jsonString.append("}");
         return jsonString.toString();
     }
@@ -76,8 +77,8 @@ public class OptionsTabPane extends TabPane {
         attackerGrid.add(new ExtendedTextField("ap"), 1, row);
         row++;
         attackerGrid.add(new Label("Damage: " ), 0, row);
-        attackerGrid.add(new ExtendedTextField("DamageAmount"), 1, row);
-        attackerGrid.add(new ExtendedComboBox("DamageType", Constants.possibleNumShots), 2, row);
+        attackerGrid.add(new ExtendedTextField("damageAmount"), 1, row);
+        attackerGrid.add(new ExtendedComboBox("damageType", Constants.possibleNumShots, true), 2, row);
         row++;
         attackerGrid.add(new Label("Exploding Hits: " ), 0, row);
         row++;

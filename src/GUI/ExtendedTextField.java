@@ -20,7 +20,7 @@ public class ExtendedTextField extends TextField implements ExtendedNodeInterfac
 
     public String getData()
     {
-        if (this.getText() != null) {
+        if (!this.getText().equals("")) {
             return "\"" + myVarName + "\":" + this.getText() + ",";
         }
         return "";

@@ -28,13 +28,23 @@ public class GuiMain extends Application {
         HBox toolbar = new HBox();
         toolbar.setMaxHeight(Constants.toolbarHeight);
         ExtendedComboBox iterationComboBox = new ExtendedComboBox("iterations", Constants.iterations, true);
-        toolbar.getChildren().addAll(btn, iterationComboBox, new Label("error box"));
+        Label errorLabel = new Label();
+        toolbar.getChildren().addAll(btn, iterationComboBox, new Label("error: "), errorLabel);
         OptionsTabPane options = new OptionsTabPane();
         StatisticsTabPane statistics = new StatisticsTabPane();
         root.setAlignment(Pos.BOTTOM_CENTER );
 
         btn.setOnAction(e -> {
-            StatisticsEngine statEngine = new StatisticsEngine(options.getData(), Constants.stringIterationsToNum(iterationComboBox.getData()));
+            String jsonString = options.getData();
+            try {
+                StatisticsEngine.checkForRequriedFields(jsonString);
+                StatisticsEngine statEngine = new StatisticsEngine(jsonString, Constants.stringIterationsToNum(iterationComboBox.getData()));
+                errorLabel.setText("");
+            }
+            catch (IllegalArgumentException except)
+            {
+                errorLabel.setText(except.getMessage());
+            }
         });
 
         splitPane.getItems().addAll(options, statistics);
