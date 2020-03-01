@@ -17,4 +17,13 @@ public class DiceCharacteristics {
     public int damageAmount = -1;
     public String damageType = "flat";
     public int woundsCharacteristic = 1;
+    public boolean autoHit = false;
+    public int explodingHitsRequirement = -1;
+    public int explodingHitsBonus = -1;
+    public boolean explodingHitsModify = false;
+    public int mortalHitsRequirement = -1;
+    public int mortalHitsBonus = -1;
+    public boolean mortalHitsModify = false;
+    public int autoWoundRequirement = -1;
+    public boolean autoWoundModify = false;
 }

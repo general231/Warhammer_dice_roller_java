@@ -55,7 +55,8 @@ public class OptionsTabPane extends TabPane {
         attackerGrid.add( new ExtendedComboBox("shotType", Constants.possibleNumShots), 2, row );
         row++;
         attackerGrid.add( new Label("Ballistic/Weapon Skill: " ), 0, row );
-        attackerGrid.add( new ExtendedComboBox( "ballisticSkill", Constants.ballisticSkill ),  1, row );
+        attackerGrid.add( new ExtendedComboBox( "ballisticSkill", Constants.ballisticSkill, true ),  1, row );
+        attackerGrid.add(new ExtendedCheckBox("Auto Hit", "autoHit"), 2, row);
         row++;
         attackerGrid.add( new Label("Hit Modifier: " ), 0, row );
         attackerGrid.add( new ExtendedComboBox("hitModifier", Constants.hitModifiers),  1, row);
@@ -81,10 +82,17 @@ public class OptionsTabPane extends TabPane {
         attackerGrid.add(new ExtendedComboBox("damageType", Constants.possibleNumShots, true), 2, row);
         row++;
         attackerGrid.add(new Label("Exploding Hits: " ), 0, row);
+        attackerGrid.add(new ExtendedComboBox("explodingHitsRequirement", Constants.ballisticSkillReversed), 1, row);
+        attackerGrid.add(new ExtendedComboBox("explodingHitsBonus", Constants.bonus), 2, row);
+        attackerGrid.add(new ExtendedCheckBox("Modifable", "explodingHitsModify"), 3, row);
         row++;
         attackerGrid.add(new Label("Mortal Wounds on hit: " ), 0, row);
+        attackerGrid.add(new ExtendedComboBox("MortalHitsRequirement", Constants.ballisticSkillReversed), 1, row);
+        attackerGrid.add(new ExtendedCheckBox("Modifable", "MortalHitsModify"), 2, row);
         row++;
         attackerGrid.add(new Label("Auto Wound: " ), 0, row);
+        attackerGrid.add(new ExtendedComboBox("autoWoundRequirement", Constants.ballisticSkillReversed), 1, row);
+        attackerGrid.add(new ExtendedCheckBox("Modifable", "autoWoundModify"), 2, row);
         row++;
         attackerGrid.add(new Label(" " ), 0, row);
         row++;

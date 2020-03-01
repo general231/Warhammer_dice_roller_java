@@ -10,6 +10,7 @@ public class ExtendedTextField extends TextField implements ExtendedNodeInterfac
     public ExtendedTextField(String varName)
     {
         myVarName = varName;
+        this.setMaxWidth(40);
         // this prevents you entering any characters other than numbers
         this.addEventFilter(KeyEvent.KEY_TYPED, keyEvent -> {
             if (!"0123456789".contains(keyEvent.getCharacter())) {

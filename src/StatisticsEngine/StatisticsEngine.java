@@ -68,6 +68,20 @@ public class StatisticsEngine {
         myHitter = new Hitter(myDiceCharacteristics.ballisticSkill);
         myHitter.setDiceModifier(myDiceCharacteristics.hitModifier);
         myHitter.setReRoll(Types.stringToEReRoll(myDiceCharacteristics.hitReRoll));
+        myHitter.setAutoSuccess(myDiceCharacteristics.autoHit);
+        if (myDiceCharacteristics.mortalHitsRequirement != -1)
+        {
+            myHitter.setMortalWound(myDiceCharacteristics.mortalHitsRequirement, myDiceCharacteristics.mortalHitsModify);
+        }
+        if (myDiceCharacteristics.explodingHitsRequirement != -1)
+        {
+            myHitter.setExplodingHits(myDiceCharacteristics.explodingHitsRequirement, myDiceCharacteristics.explodingHitsModify, myDiceCharacteristics.explodingHitsBonus);
+        }
+        if (myDiceCharacteristics.autoWoundRequirement != -1)
+        {
+            myHitter.setAutoWound(myDiceCharacteristics.autoWoundRequirement, myDiceCharacteristics.autoWoundModify);
+        }
+
     }
 
     private void createWounderObject()

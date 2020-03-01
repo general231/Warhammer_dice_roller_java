@@ -1,7 +1,8 @@
 
-//plugins {
-//    id "com.github.onslip.gradle-one-jar" version "1.0.5"
-//}
+plugins {
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+    id 'java'
+}
 
 apply plugin: 'java'
 apply plugin: 'application'
@@ -10,9 +11,7 @@ sourceSets.main.java.srcDirs = ['src']
 
 repositories {
     mavenCentral()
-    maven {
-        url "https://plugins.gradle.org/m2/"
-    }
+    jcenter()
 }
 
 dependencies {
@@ -21,22 +20,7 @@ dependencies {
     implementation 'junit:junit:4.12'
     implementation 'com.google.code.gson:gson:2.8.6'
     compile group: 'org.apache.commons', name: 'commons-math3', version: '3.0'
-    compile "gradle.plugin.com.github.onslip:gradle-one-jar:1.0.5"
-    compile 'ch.qos.logback:logback-classic:1.1.2'
+    compile 'com.github.jengelman.gradle.plugins:shadow:5.2.0'
+
 }
 
-//create a single Jar with all dependencies
-//task awesomeFunJar(type: OneJar) {
-//    mainClass = 'GUI.GuiMain'
-//    archiveName = 'DiceRoller.jar'
-//}
-
-task fatJar(type: Jar) {
-    manifest {
-        attributes 'Implementation-Title': 'Gradle Jar File Example',
-                'Main-Class': 'GUI.GuiMain'
-    }
-    baseName = project.name + '-all'
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
-}

@@ -1,6 +1,7 @@
 package GUI;
 import StatisticsEngine.StatisticsEngine;
 import StatisticsEngine.StatisticsStorageObject;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.VBox;
 
@@ -11,6 +12,8 @@ public class StatisticsTab extends Tab{
     private HorizontalStatsDisplay myWoundsDisplay;
     private HorizontalStatsDisplay myDeadModelsDisplay;
     private HorizontalStatsDisplay myDamageRecievedDisplay;
+    private Label myAverageHitSuccessRate;
+    private Label myAverageWoundSuccessRate;
 
     public StatisticsTab(String tabName)
     {

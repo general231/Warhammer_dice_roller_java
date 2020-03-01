@@ -27,7 +27,7 @@ public class ExtendedComboBox extends ComboBox<String> implements ExtendedNodeIn
 
     public String getData()
     {
-        if (this.getValue() != null) {
+        if (this.getValue() != null && !this.getValue().equals("")) {
             return "\"" + myVarName + "\":\"" + this.getValue() + "\",";
         }
         return "";

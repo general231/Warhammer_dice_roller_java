@@ -43,7 +43,7 @@ public class GraphTab extends Tab{
         myCDF = new LineChart(xAxisC, yAxisC);
 
         StackPane stackPane = new StackPane();
-        myViewButton = new Button("View CDF");
+        myViewButton = new Button("View PDF");
         myHoldDataCheckBox = new CheckBox("Hold");
         HBox hBox = new HBox();
         hBox.setSpacing(20);
