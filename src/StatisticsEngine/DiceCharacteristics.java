@@ -16,4 +16,5 @@ public class DiceCharacteristics {
     public int fnpSave = 7;
     public int damageAmount = -1;
     public String damageType = "flat";
+    public int woundsCharacteristic = 1;
 }

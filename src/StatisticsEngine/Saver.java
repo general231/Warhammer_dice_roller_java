@@ -40,4 +40,9 @@ public class Saver {
     {
         return myModelObject.getMyTotalDamageReceived();
     }
+
+    public void reset()
+    {
+        myModelObject.reset();
+    }
 }

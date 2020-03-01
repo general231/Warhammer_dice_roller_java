@@ -57,6 +57,7 @@ public class StatisticsEngine {
             output.numberOfSaves.addValue(passedSaves);
             output.numberOfModelsLost.addValue(mySaver.getLostModels());
             output.numberOfDamageRecieved.addValue(mySaver.getDamageReceived());
+            mySaver.reset();
         }
 
         return output;
@@ -81,7 +82,7 @@ public class StatisticsEngine {
     private void createSaverObject()
     {
         mySaver = new Saver(myDiceCharacteristics.armourSave, myDiceCharacteristics.invunerableSave,
-                1, myDiceCharacteristics.fnpSave);
+                myDiceCharacteristics.woundsCharacteristic, myDiceCharacteristics.fnpSave);
     }
 
     private ArrayList<Integer> rollHitDice()

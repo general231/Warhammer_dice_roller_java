@@ -35,7 +35,7 @@ public class ModelObject {
     {
         myTotalDamageReceived = 0;
         myTotalLostModels = 0;
-        myWoundsRemaining = 0;
+        myWoundsRemaining = myWoundCharacteristic;
     }
 
     public void applyDamage(DamageObject someDamage)
@@ -52,7 +52,7 @@ public class ModelObject {
         for (int i = 0; i < someDamage.getDamage(); i++)
         {
             int fnpDiceValue = myDiceRoller.rollDiceD6();
-            if (myFnp >= fnpDiceValue)
+            if (myFnp <= fnpDiceValue)
             {
                 damageToApply--;
             }

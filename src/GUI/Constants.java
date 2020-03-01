@@ -25,12 +25,12 @@ public class Constants {
     static public int stringIterationsToNum(String iteration)
     {
         switch (iteration) {
-            case "small":
-                return 1000;
-            case "medium":
+            case "\"iterations\":\"small\",":
                 return 10000;
-            case "large":
+            case "\"iterations\":\"medium\",":
                 return 100000;
+            case "\"iterations\":\"large\",":
+                return 1000000;
             default:
                 return 10000000;
         }

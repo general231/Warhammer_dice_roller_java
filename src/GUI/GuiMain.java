@@ -1,6 +1,7 @@
 package GUI;
 
 import StatisticsEngine.StatisticsEngine;
+import StatisticsEngine.StatisticsStorageObject;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -39,7 +40,8 @@ public class GuiMain extends Application {
             try {
                 StatisticsEngine.checkForRequriedFields(jsonString);
                 StatisticsEngine statEngine = new StatisticsEngine(jsonString, Constants.stringIterationsToNum(iterationComboBox.getData()));
-                statEngine.executeOrder();
+                StatisticsStorageObject statObject = statEngine.executeOrder();
+                statistics.update(statObject);
                 errorLabel.setText("");
             }
             catch (IllegalArgumentException except)

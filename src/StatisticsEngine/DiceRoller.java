@@ -12,11 +12,11 @@ public class DiceRoller {
 
     public int rollDiceD6()
     {
-        return (int)(1 + 6 * Math.random());
+        return (int)(1 + 6 * myRandom.nextFloat());
     }
 
     public int rollDiceD3()
     {
-        return (int)(1 + 3 * Math.random());
+        return (int)(1 + 3 * myRandom.nextFloat());
     }
 }

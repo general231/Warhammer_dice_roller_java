@@ -116,6 +116,7 @@ public class OptionsTabPane extends TabPane {
         defenderGrid.add(new ExtendedComboBox("fnpSave", Constants.saveValues), 1, row);
         row++;
         defenderGrid.add(new Label("Wounds Characteristic:"), 0, row);
+        defenderGrid.add(new ExtendedTextField("woundCharacteristic"), 1, row);
 //        row++;
 
         defenderTab = new Tab("Defender");
