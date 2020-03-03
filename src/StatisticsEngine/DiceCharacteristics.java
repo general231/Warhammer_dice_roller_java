@@ -26,4 +26,10 @@ public class DiceCharacteristics {
     public boolean mortalHitsModify = false;
     public int autoWoundRequirement = -1;
     public boolean autoWoundModify = false;
+    public int explodingDamageRequirement = -1;
+    public int explodingDamageBonus = -1;
+    public boolean explodingDamageModify = false;
+    public int rendingRequirement = -1;
+    public int rendingBonus = -1;
+    public boolean rendingModify = false;
 }

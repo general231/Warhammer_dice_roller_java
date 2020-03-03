@@ -6,6 +6,8 @@ plugins {
 
 apply plugin: 'java'
 apply plugin: 'application'
+apply plugin: 'com.github.johnrengelman.shadow'
+
 mainClassName = 'GUI.GuiMain'
 sourceSets.main.java.srcDirs = ['src']
 
@@ -24,3 +26,9 @@ dependencies {
 
 }
 
+// Output to build/libs/shadow.jar
+shadowJar {
+    baseName = 'shadow'
+    classifier = ''
+    archiveVersion = ''
+}

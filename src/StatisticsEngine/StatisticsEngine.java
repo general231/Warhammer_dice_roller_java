@@ -69,13 +69,15 @@ public class StatisticsEngine {
         myHitter.setDiceModifier(myDiceCharacteristics.hitModifier);
         myHitter.setReRoll(Types.stringToEReRoll(myDiceCharacteristics.hitReRoll));
         myHitter.setAutoSuccess(myDiceCharacteristics.autoHit);
+
         if (myDiceCharacteristics.mortalHitsRequirement != -1)
         {
             myHitter.setMortalWound(myDiceCharacteristics.mortalHitsRequirement, myDiceCharacteristics.mortalHitsModify);
         }
         if (myDiceCharacteristics.explodingHitsRequirement != -1)
         {
-            myHitter.setExplodingHits(myDiceCharacteristics.explodingHitsRequirement, myDiceCharacteristics.explodingHitsModify, myDiceCharacteristics.explodingHitsBonus);
+            myHitter.setExplodingHits(myDiceCharacteristics.explodingHitsRequirement,
+                    myDiceCharacteristics.explodingHitsModify, myDiceCharacteristics.explodingHitsBonus);
         }
         if (myDiceCharacteristics.autoWoundRequirement != -1)
         {
@@ -91,6 +93,17 @@ public class StatisticsEngine {
                 myDiceCharacteristics.ap);
         myWounder.setDiceModifier(myDiceCharacteristics.woundModifier);
         myWounder.setReRoll(Types.stringToEReRoll(myDiceCharacteristics.woundReRoll));
+
+        if (myDiceCharacteristics.explodingDamageRequirement != -1) {
+            myWounder.setExplodingDamage(myDiceCharacteristics.explodingDamageRequirement,
+                    myDiceCharacteristics.explodingHitsModify, DiceRollFactory.createDiceObject(
+                            myDiceCharacteristics.explodingDamageBonus, " "));
+        }
+        if (myDiceCharacteristics.rendingRequirement != -1)
+        {
+            myWounder.setRending(myDiceCharacteristics.rendingRequirement, myDiceCharacteristics.rendingModify,
+                    myDiceCharacteristics.rendingBonus);
+        }
     }
 
     private void createSaverObject()
