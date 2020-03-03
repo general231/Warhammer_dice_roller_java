@@ -52,14 +52,18 @@ public class OptionsTabPane extends TabPane {
     private void createAttackerTab()
     {
         GridPane attackerGrid = new GridPane();
+        attackerGrid.setHgap(5);
+        attackerGrid.setVgap(3);
         int row = 0;
         attackerGrid.add( new Label("Number of Shots:" ), 0, row );
         attackerGrid.add( new ExtendedTextField("numShots"), 1, row );
-        attackerGrid.add( new ExtendedComboBox("shotType", Constants.possibleNumShots), 2, row );
+        row++;
+        attackerGrid.add( new ExtendedComboBox("shotType", Constants.possibleNumShots), 1, row );
         row++;
         attackerGrid.add( new Label("Ballistic/Weapon Skill: " ), 0, row );
         attackerGrid.add( new ExtendedComboBox( "ballisticSkill", Constants.ballisticSkill, true ),  1, row );
-        attackerGrid.add(new ExtendedCheckBox("Auto Hit", "autoHit"), 2, row);
+        row++;
+        attackerGrid.add(new ExtendedCheckBox("Auto Hit", "autoHit"), 1, row);
         row++;
         attackerGrid.add( new Label("Hit Modifier: " ), 0, row );
         attackerGrid.add( new ExtendedComboBox("hitModifier", Constants.hitModifiers),  1, row);
@@ -75,14 +79,14 @@ public class OptionsTabPane extends TabPane {
         row++;
         attackerGrid.add(new Label("Wound Re-Roll: " ), 0, row);
         attackerGrid.add( new ExtendedComboBox("woundReRoll", Constants.woundReRolls),  1, row);
-        attackerGrid.add(new Label(" " ), 0, 6);
         row++;
         attackerGrid.add(new Label("Armour Penetration: " ), 0, row);
         attackerGrid.add(new ExtendedTextField("ap"), 1, row);
         row++;
         attackerGrid.add(new Label("Damage: " ), 0, row);
         attackerGrid.add(new ExtendedTextField("damageAmount"), 1, row);
-        attackerGrid.add(new ExtendedComboBox("damageType", Constants.possibleNumShots, true), 2, row);
+        row++;
+        attackerGrid.add(new ExtendedComboBox("damageType", Constants.possibleNumShots, true), 1, row);
 //        row++;
 
         attackerTab = new Tab("Attacker");
@@ -90,6 +94,8 @@ public class OptionsTabPane extends TabPane {
     }
     private void createDefenderTab() {
         GridPane defenderGrid = new GridPane();
+        defenderGrid.setHgap(5);
+        defenderGrid.setVgap(3);
         int row = 0;
         defenderGrid.add(new Label("Toughness:"), 0, row);
         defenderGrid.add(new ExtendedTextField("toughness"), 1, row);
@@ -113,6 +119,8 @@ public class OptionsTabPane extends TabPane {
     private void createOptionsTab()
     {
         GridPane optionsGrid = new GridPane();
+        optionsGrid.setHgap(5);
+        optionsGrid.setVgap(3);
         int row = 0;
         optionsGrid.add(new Label("Halve Damage: " ), 0, row);
         optionsGrid.add(new ExtendedCheckBox("", "halveDamage"), 1, row);
@@ -122,35 +130,45 @@ public class OptionsTabPane extends TabPane {
         row++;
         optionsGrid.add(new Label("Exploding Hits: " ), 0, row);
         optionsGrid.add(new ExtendedComboBox("explodingHitsRequirement", Constants.ballisticSkillReversed, "Hit Roll"), 1, row);
-        optionsGrid.add(new ExtendedCheckBox("Modifable", "explodingHitsModify"), 2, row);
+        optionsGrid.add(new ExtendedCheckBox("Modifiable", "explodingHitsModify"), 2, row);
         row++;
         optionsGrid.add(new ExtendedComboBox("explodingHitsBonus", Constants.bonus, "Bonus"), 1, row);
         row++;
         optionsGrid.add(new Label("Mortal Wounds on hit: " ), 0, row);
-        optionsGrid.add(new ExtendedComboBox("MortalHitsRequirement", Constants.ballisticSkillReversed), 1, row);
-        optionsGrid.add(new ExtendedCheckBox("Modifable", "MortalHitsModify"), 2, row);
+        optionsGrid.add(new ExtendedComboBox("MortalHitsRequirement", Constants.ballisticSkillReversed, "Hit Roll"), 1, row);
+        optionsGrid.add(new ExtendedCheckBox("Modifiable", "MortalHitsModify"), 2, row);
         row++;
         optionsGrid.add(new Label("Auto Wound: " ), 0, row);
-        optionsGrid.add(new ExtendedComboBox("autoWoundRequirement", Constants.ballisticSkillReversed), 1, row);
-        optionsGrid.add(new ExtendedCheckBox("Modifable", "autoWoundModify"), 2, row);
+        optionsGrid.add(new ExtendedComboBox("autoWoundRequirement", Constants.ballisticSkillReversed, "Hit Roll"), 1, row);
+        optionsGrid.add(new ExtendedCheckBox("Modifiable", "autoWoundModify"), 2, row);
         row++;
         optionsGrid.add(new Label(" " ), 0, row);
         row++;
         optionsGrid.add(new Label("Exploding Damage: " ), 0, row);
         optionsGrid.add(new ExtendedComboBox("explodingDamageRequirement", Constants.ballisticSkillReversed, "Dice Value"), 1, row);
-        optionsGrid.add(new ExtendedCheckBox("Modifable", "explodingDamageModify"), 2, row);
+        optionsGrid.add(new ExtendedCheckBox("Modifiable", "explodingDamageModify"), 2, row);
         row++;
         optionsGrid.add(new ExtendedComboBox("explodingDamageBonus", Constants.bonus, "Bonus"), 1, row);
         row++;
         optionsGrid.add(new Label("Rending: " ), 0, row);
         optionsGrid.add(new ExtendedComboBox("rendingRequirement", Constants.ballisticSkillReversed, "Dice Value"), 1, row);
-        optionsGrid.add(new ExtendedCheckBox("Modifable", "rendingModify"), 2, row);
+        optionsGrid.add(new ExtendedCheckBox("Modifiable", "rendingModify"), 2, row);
         row++;
         optionsGrid.add(new ExtendedComboBox("rendingBonus", Constants.bonus, "Bonus"), 1, row);
         row++;
         optionsGrid.add(new Label("Exploding Wounds: " ), 0, row);
+        optionsGrid.add(new ExtendedComboBox("explodingWoundsRequirement", Constants.ballisticSkillReversed, "Hit Roll"), 1, row);
+        optionsGrid.add(new ExtendedCheckBox("Modifiable", "explodingWoundsModify"), 2, row);
+        row++;
+        optionsGrid.add(new ExtendedComboBox("explodingWoundsBonus", Constants.bonus, "Bonus"), 1, row);
+        row++;
         row++;
         optionsGrid.add(new Label("Mortal Wounds: " ), 0, row);
+        optionsGrid.add(new ExtendedComboBox("mortalWoundsRequirement", Constants.ballisticSkillReversed, "Hit Roll"), 1, row);
+        optionsGrid.add(new ExtendedCheckBox("Modifiable", "mortalWoundsModify"), 2, row);
+        row++;
+        optionsGrid.add(new ExtendedComboBox("mortalWoundsBonus", Constants.bonus, "Bonus"), 1, row);
+//        row++;
 
         optionsTab = new Tab("Options");
         optionsTab.setContent(optionsGrid);

@@ -41,6 +41,10 @@ public class GraphTab extends Tab{
 
         myPDF = new AreaChart(xAxisP, yAxisP);
         myCDF = new LineChart(xAxisC, yAxisC);
+        myPDF.setPrefHeight(Constants.graphTabHeight);
+        myCDF.setPrefHeight(Constants.graphTabHeight);
+        myPDF.setPrefWidth(Constants.graphTabWidth);
+        myCDF.setPrefWidth(Constants.graphTabWidth);
 
         StackPane stackPane = new StackPane();
         myViewButton = new Button("View PDF");

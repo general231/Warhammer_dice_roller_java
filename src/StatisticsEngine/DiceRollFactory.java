@@ -20,6 +20,42 @@ public class DiceRollFactory {
                 return new flatDamageDiceObject(numDice);
         }
     }
+    static public DiceObject createDiceObject(String stringDiceObject)
+    { //" ", "XD3", "XD6", "XD6 pick the highest", "XD6 with re-roll", "XD3 with re-roll"
+        switch (stringDiceObject) {
+            case "1D3":
+                return new XD3DiceObject(1);
+            case "2D3":
+                return new XD3DiceObject(2);
+            case "3D3":
+                return new XD3DiceObject(3);
+            case "1D6":
+                return new XD6DiceObject(1);
+            case "2D6":
+                return new XD6DiceObject(2);
+            case "3D6":
+                return new XD6DiceObject(3);
+            case "2D6 pick the highest":
+                return new bestOfDiceD6Object(2);
+            case "1D6 with re-roll":
+                return new XD6WithReRollDiceObject(1);
+            case "1D3 with re-roll":
+                return new XD3WithReRollDiceObject(1);
+            case "1":
+                return new flatDamageDiceObject(1);
+            case "2":
+                return new flatDamageDiceObject(2);
+            case "3":
+                return new flatDamageDiceObject(3);
+            case "4":
+                return new flatDamageDiceObject(4);
+            case "5":
+                return new flatDamageDiceObject(5);
+            case "6":
+                return new flatDamageDiceObject(6);
+        }
+        return null;
+    }
 }
 
 

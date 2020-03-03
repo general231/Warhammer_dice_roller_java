@@ -51,6 +51,7 @@ public class GuiMain extends Application {
         });
 
         splitPane.getItems().addAll(options, statistics);
+        splitPane.setPrefHeight(Constants.splitpaneHeight);
         root.getChildren().addAll(splitPane, toolbar);
         primaryStage.setScene(new Scene(root, Constants.windowWidth, Constants.windowHeight));
         primaryStage.show();
