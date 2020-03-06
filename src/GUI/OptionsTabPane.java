@@ -42,6 +42,15 @@ public class OptionsTabPane extends TabPane {
                 jsonString.append(extendedComponent.getData());
             }
         }
+        gridPane = (GridPane) optionsTab.getContent();
+        for (Node component : gridPane.getChildren())
+        {
+            if (GridPane.getColumnIndex(component) != 0)
+            {
+                ExtendedNodeInterface extendedComponent = (ExtendedNodeInterface)component;
+                jsonString.append(extendedComponent.getData());
+            }
+        }
         if (jsonString.length() != 0)
         { jsonString.deleteCharAt(jsonString.length()-1); } //remove the last comma
         jsonString.insert(0, "{");
@@ -104,13 +113,13 @@ public class OptionsTabPane extends TabPane {
         defenderGrid.add(new ExtendedComboBox("armourSave", Constants.saveValues), 1, row);
         row++;
         defenderGrid.add(new Label("Invulnerable Save:"), 0, row);
-        defenderGrid.add(new ExtendedComboBox("invunerableSave", Constants.saveValues), 1, row);
+        defenderGrid.add(new ExtendedComboBox("invulnerableSave", Constants.saveValues), 1, row);
         row++;
         defenderGrid.add(new Label("Feel No Pain Save:"), 0, row);
         defenderGrid.add(new ExtendedComboBox("fnpSave", Constants.saveValues), 1, row);
         row++;
         defenderGrid.add(new Label("Wounds Characteristic:"), 0, row);
-        defenderGrid.add(new ExtendedTextField("woundCharacteristic"), 1, row);
+        defenderGrid.add(new ExtendedTextField("woundsCharacteristic"), 1, row);
 //        row++;
        defenderTab = new Tab("Defender");
         defenderTab.setContent(defenderGrid);

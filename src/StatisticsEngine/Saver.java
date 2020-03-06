@@ -18,7 +18,7 @@ public class Saver {
     public boolean rollToSave(DamageObject someDamage)
     {
         int diceValue = myDiceRoller.rollDiceD6();
-        if (someDamage.getType() != Types.e_DamageType.MORTAL)
+        if (someDamage.getType() == Types.e_DamageType.MORTAL)
         {
             myModelObject.applyDamage(someDamage);
             return false;

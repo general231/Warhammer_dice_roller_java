@@ -16,7 +16,7 @@ public class DiceCharacteristics {
 
     public int toughness = -1;
     public int armourSave = 7;
-    public int invunerableSave = 7;
+    public int invulnerableSave = 7;
     public int fnpSave = 7;
     public int woundsCharacteristic = 1;
 
@@ -38,10 +38,10 @@ public class DiceCharacteristics {
     public int rendingBonus = -1;
     public boolean rendingModify = false;
     public int explodingWoundsRequirement = -1;
-    public int explodingWoundsBonus = -1;
+    public String explodingWoundsBonus = null;
     public boolean explodingWoundsModify = false;
     public int mortalWoundsRequirement = -1;
-    public int mortalWoundsBonus = -1;
+    public String mortalWoundsBonus = null;
     public boolean mortalWoundsModify = false;
 
 }

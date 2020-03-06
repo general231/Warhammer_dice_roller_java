@@ -29,24 +29,22 @@ public class SuccessObject {
             case NONE:
                 return false;
             case ONES:
-                if (diceValue == 1)
-                {
+                if (diceValue == 1) {
                     return true;
                 }
+                break;
             case FAILED_HITS:
-                if (diceValue < mySuccessValue)
-                {
+                if (diceValue < mySuccessValue) {
                     return true;
                 }
+                break;
             case HITS:
                 diceValue += myDiceModifier;
-                if (diceValue < mySuccessValue)
-                {
+                if (diceValue < mySuccessValue) {
                     return true;
                 }
-            default:
-                return false;
         }
+        return false;
     }
 
     public boolean doISucceed(int diceValue)

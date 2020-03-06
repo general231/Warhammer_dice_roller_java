@@ -2,7 +2,6 @@ package StatisticsEngine;
 
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 
@@ -96,19 +95,31 @@ public class StatisticsEngine {
 
         if (myDiceCharacteristics.explodingDamageRequirement != -1) {
             myWounder.setExplodingDamage(myDiceCharacteristics.explodingDamageRequirement,
-                    myDiceCharacteristics.explodingHitsModify, DiceRollFactory.createDiceObject(
+                    myDiceCharacteristics.explodingDamageModify, DiceRollFactory.createDiceObject(
                             myDiceCharacteristics.explodingDamageBonus, " "));
+        }
+        if (myDiceCharacteristics.explodingWoundsRequirement != -1)
+        {
+            myWounder.setExplodingWounds(myDiceCharacteristics.explodingWoundsRequirement,
+                    myDiceCharacteristics.explodingWoundsModify, DiceRollFactory.createDiceObject(
+                            myDiceCharacteristics.explodingWoundsBonus));
         }
         if (myDiceCharacteristics.rendingRequirement != -1)
         {
             myWounder.setRending(myDiceCharacteristics.rendingRequirement, myDiceCharacteristics.rendingModify,
                     myDiceCharacteristics.rendingBonus);
         }
+        if (myDiceCharacteristics.mortalWoundsRequirement != -1)
+        {
+            myWounder.setMortalWounds(myDiceCharacteristics.mortalWoundsRequirement,
+                    myDiceCharacteristics.mortalWoundsModify, DiceRollFactory.createDiceObject(
+                            myDiceCharacteristics.mortalWoundsBonus));
+        }
     }
 
     private void createSaverObject()
     {
-        mySaver = new Saver(myDiceCharacteristics.armourSave, myDiceCharacteristics.invunerableSave,
+        mySaver = new Saver(myDiceCharacteristics.armourSave, myDiceCharacteristics.invulnerableSave,
                 myDiceCharacteristics.woundsCharacteristic, myDiceCharacteristics.fnpSave);
     }
 

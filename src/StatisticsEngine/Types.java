@@ -28,6 +28,7 @@ public class Types {
         switch (value) {
             case "ones":
                 return e_ReRoll.ONES;
+            case "failed wounds":
             case "failed hits":
                 return e_ReRoll.FAILED_HITS;
             case "hits":

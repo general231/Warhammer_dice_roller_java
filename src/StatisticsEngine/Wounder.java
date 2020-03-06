@@ -113,6 +113,11 @@ public class Wounder extends SuccessObject{
 
     public ArrayList<DamageObject> rollToWound(Types.e_HitResult type, int diceValue)
     {
+        return rollToWound(type, diceValue, true);
+    }
+
+    public ArrayList<DamageObject> rollToWound(Types.e_HitResult type, int diceValue, boolean applyReRoll)
+    {
         ArrayList<DamageObject> output = new ArrayList<>();
 
         if (type == Types.e_HitResult.MORTAL)
@@ -169,6 +174,12 @@ public class Wounder extends SuccessObject{
             if (super.doISucceed(diceValue))
             {
                 output.addAll(createDamageObject(Types.e_DamageType.NORMAL, 0, 0));
+            }
+            if (output.isEmpty() && applyReRoll) {
+                if (canIReRoll(diceValue)) {
+                    int newDiceValue = super.myDiceRoller.rollDiceD6();
+                    output.addAll(this.rollToWound(Types.e_HitResult.HIT, newDiceValue, false));
+                }
             }
             return output;
         }
