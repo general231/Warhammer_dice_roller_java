@@ -144,8 +144,8 @@ public class OptionsTabPane extends TabPane {
         optionsGrid.add(new ExtendedComboBox("explodingHitsBonus", Constants.bonus, "Bonus"), 1, row);
         row++;
         optionsGrid.add(new Label("Mortal Wounds on hit: " ), 0, row);
-        optionsGrid.add(new ExtendedComboBox("MortalHitsRequirement", Constants.ballisticSkillReversed, "Hit Roll"), 1, row);
-        optionsGrid.add(new ExtendedCheckBox("Modifiable", "MortalHitsModify"), 2, row);
+        optionsGrid.add(new ExtendedComboBox("mortalHitsRequirement", Constants.ballisticSkillReversed, "Hit Roll"), 1, row);
+        optionsGrid.add(new ExtendedCheckBox("Modifiable", "mortalHitsModify"), 2, row);
         row++;
         optionsGrid.add(new Label("Auto Wound: " ), 0, row);
         optionsGrid.add(new ExtendedComboBox("autoWoundRequirement", Constants.ballisticSkillReversed, "Hit Roll"), 1, row);

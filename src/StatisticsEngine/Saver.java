@@ -15,6 +15,20 @@ public class Saver {
         myDiceRoller = new DiceRoller();
     }
 
+    public void setHalveDamage(boolean value)
+    {
+        myModelObject.setHalveDamage(value);
+    }
+
+    public void setReduceDamage(boolean value)
+    {
+        if (value)
+        {
+        myModelObject.setMyReduceDamageAmount(1);
+        }
+    }
+
+
     public boolean rollToSave(DamageObject someDamage)
     {
         int diceValue = myDiceRoller.rollDiceD6();

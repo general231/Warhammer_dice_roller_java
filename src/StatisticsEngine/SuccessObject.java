@@ -18,7 +18,7 @@ public class SuccessObject {
     {
         if (isModified)
         {
-            diceValue = diceValue - myDiceModifier;
+            diceValue = diceValue + myDiceModifier;
         }
         return diceValue >= diceSuccessValue;
     }

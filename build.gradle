@@ -8,7 +8,7 @@ apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'com.github.johnrengelman.shadow'
 
-mainClassName = 'GUI.GuiMain'
+
 sourceSets.main.java.srcDirs = ['src']
 
 repositories {
@@ -31,4 +31,5 @@ shadowJar {
     baseName = 'shadow'
     classifier = ''
     archiveVersion = ''
+    mainClassName = 'GUI.GuiMain'
 }

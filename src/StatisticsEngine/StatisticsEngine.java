@@ -121,6 +121,14 @@ public class StatisticsEngine {
     {
         mySaver = new Saver(myDiceCharacteristics.armourSave, myDiceCharacteristics.invulnerableSave,
                 myDiceCharacteristics.woundsCharacteristic, myDiceCharacteristics.fnpSave);
+        if (myDiceCharacteristics.halveDamage)
+        {
+            mySaver.setHalveDamage(myDiceCharacteristics.halveDamage);
+        }
+        if (myDiceCharacteristics.reduceDamage1)
+        {
+            mySaver.setReduceDamage(myDiceCharacteristics.reduceDamage1);
+        }
     }
 
     private ArrayList<Integer> rollHitDice()
