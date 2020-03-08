@@ -31,6 +31,7 @@ public class Types {
             case "failed wounds":
             case "failed hits":
                 return e_ReRoll.FAILED_HITS;
+            case "wounds":
             case "hits":
                 return e_ReRoll.HITS;
             default:

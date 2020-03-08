@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>C:\Users\J-Mar\IdeaProjects\dice rolling\build\libs\shadow.jar</jar>
+  <outfile>C:\Users\J-Mar\IdeaProjects\dice rolling\build\libs\WarhammerStatistics.exe</outfile>
+  <errTitle>Please install java</errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>C:\Users\J-Mar\Downloads\hnet.com-image.ico</icon>
+  <jre>
+    <path></path>
+    <bundledJre64Bit>false</bundledJre64Bit>
+    <bundledJreAsFallback>false</bundledJreAsFallback>
+    <minVersion>1.8.0</minVersion>
+    <maxVersion>1.9</maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+    <runtimeBits>64/32</runtimeBits>
+  </jre>
+  <versionInfo>
+    <fileVersion>1.0.0.0</fileVersion>
+    <txtFileVersion>1.0.0.0</txtFileVersion>
+    <fileDescription>Warhammer dice statistics</fileDescription>
+    <copyright>NIL</copyright>
+    <productVersion>1.0.0.0</productVersion>
+    <txtProductVersion>1.0.0.0</txtProductVersion>
+    <productName>Warhammer dice statistics</productName>
+    <companyName></companyName>
+    <internalName>Warhammer dice statistics</internalName>
+    <originalFilename>Warhammer dice statistics.exe</originalFilename>
+    <trademarks></trademarks>
+    <language>ENGLISH_UK</language>
+  </versionInfo>
+</launch4jConfig>

@@ -36,7 +36,7 @@ public class StatisticsTab extends Tab{
         hBox.setSpacing(10);
         VBox display = new VBox();
         display.setSpacing(12);
-        display.getChildren().addAll(myShotsDisplay, myHitsDisplay, myWoundsDisplay, myDeadModelsDisplay, myDamageRecievedDisplay, hBox);
+        display.getChildren().addAll(myShotsDisplay, myHitsDisplay, myWoundsDisplay, myDamageRecievedDisplay, myDeadModelsDisplay, hBox);
         display.setSpacing(5);
         this.setContent(display);
     }
