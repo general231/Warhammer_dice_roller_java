@@ -20,9 +20,18 @@ public class GuiMain extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Warhammer dice roller");
-        Button btn = new Button();
-        btn.setText("Calculate");
+        primaryStage.setTitle("Warhammer Statistics");
+        Button btn = new Button("Calculate");
+
+        Button aboutBtn = new Button("About");
+        AboutPopup about = new AboutPopup();
+        about.setAutoHide(true);
+        aboutBtn.setOnAction( e-> {
+            if (!about.isShowing())
+            {
+                about.show(primaryStage);
+            }
+        });
 
         VBox root = new VBox();
         SplitPane splitPane = new SplitPane();
@@ -30,7 +39,7 @@ public class GuiMain extends Application {
         toolbar.setMaxHeight(Constants.toolbarHeight);
         ExtendedComboBox iterationComboBox = new ExtendedComboBox("iterations", Constants.iterations, true);
         Label errorLabel = new Label();
-        toolbar.getChildren().addAll(btn, iterationComboBox, new Label("error: "), errorLabel);
+        toolbar.getChildren().addAll(btn, new Label("Number of Iterations: "), iterationComboBox, aboutBtn, new Label("error: "), errorLabel);
         OptionsTabPane options = new OptionsTabPane();
         StatisticsTabPane statistics = new StatisticsTabPane();
         root.setAlignment(Pos.BOTTOM_CENTER );
