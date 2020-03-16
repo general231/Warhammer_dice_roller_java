@@ -1,12 +1,8 @@
 # Warhammer 40K Dice Statistics
 
-This is a project that calculates dice statistics for Warhammer 40K
+This is a project that calculates dice statistics for Warhammer 40K.
 
-## Warning
-The exe in release hasnt been signed so it will give a big scary warning on windows. I promise its fine, but I am some random on the internet. You can run it with the exe, or by directly running the .jar file or to be 100% sure just build this yourself.
-```
-java -jar shadow.jar
-```
+You can find an executable in the release folder, also it contains a jar file and a .bat file which launches the jar file
 
 ## Getting Started
 
@@ -15,7 +11,6 @@ This is currently setup for Java 8, just run gradle and it should build
 ### Prerequisites
 
 If using Java 8 it should just work, if you are using a more recent version e.g. 11 or 13 then you will need to add JavaFX
-
 
 ### Installing
 
@@ -27,14 +22,22 @@ gradle build
 
 then launch the jar file, it will create a fat jar with shadow
 ```
-Java -jar shadow.jar
+Java -jar WarhammerStatistics.jar
 ```
 or run with gradle
 ```
 gradle run
 ```
+```
+gradle runShadow
+```
 
-End with an example of getting some data out of the system or using it for a little demo
+
+
+
+## Warning
+The exe in release hasnt been signed so it will give a big scary warning on windows. I promise its fine, but I am some random on the internet. You can run it with the exe, or by directly running the .jar file or to be 100% sure just build this yourself.
+
 
 ## Running the tests
 
