@@ -2,7 +2,7 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>C:\Users\J-Mar\IdeaProjects\dice rolling\build\libs\shadow.jar</jar>
+  <jar>C:\Users\J-Mar\IdeaProjects\dice rolling\build\libs\WarhammerStatistics.jar</jar>
   <outfile>C:\Users\J-Mar\IdeaProjects\dice rolling\build\libs\WarhammerStatistics.exe</outfile>
   <errTitle>Please install java</errTitle>
   <cmdLine></cmdLine>

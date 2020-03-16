@@ -1,2 +1,2 @@
 @echo off
-java -jar shadow.jar
+java -jar WarhammerStatistics.jar
